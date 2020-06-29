@@ -1,7 +1,5 @@
 package com.training.controller;
 
-import java.util.List;
-
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.training.dto.EmpDto;
 import com.training.exception.validateException;
-import com.training.model.Employee;
 import com.training.service.EmployeeService;
 
 @RestController
@@ -67,7 +64,6 @@ public class EmployeeController extends AbstractEmpClass{
 	@DeleteMapping("/deleteEmployee/{id}")
 	public ResponseEntity<Object> deleteEmployee(@PathVariable(value = "id") ObjectId empId) {
 		LOG.info("deleting employee");
-		ResponseEntity<Object> responseEntity = null;
 		try {
             valid(empId);
             employeeService.deleteEmployee(empId);

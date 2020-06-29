@@ -1,7 +1,5 @@
 package com.training.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +66,7 @@ abstract class AbstractEmpClass {
 	protected void valid(ObjectId empId) throws validateException {
 		// TODO Auto-generated method stub
 		if (!employeeService.isExistsById(empId)) {
-            throw new validateException(HttpStatus.NOT_FOUND,"Invalid UserId",null);
+            throw new validateException(HttpStatus.NOT_FOUND,"Invalid empId",null);
         }
 	}
 

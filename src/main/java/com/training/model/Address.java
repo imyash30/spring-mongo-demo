@@ -1,10 +1,25 @@
 package com.training.model;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("Address")
 public class Address {
 	
+	@Id
+	private ObjectId addressId; 
 	private String type;
 	private String address;
 	private String pincode;
+	
+	
+	public String getAddressId() {
+		return addressId.toHexString();
+	}
+	public void setAddressId(ObjectId addressId) {
+		this.addressId = addressId;
+	}
 	public String getType() {
 		return type;
 	}
