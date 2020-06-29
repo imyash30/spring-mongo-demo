@@ -22,9 +22,11 @@ public class EmployeeService {
 	@Autowired
 	ModelMapper modelMapper;
 
-	public List<Employee> getAllUsers() {
+	public List<EmpDto> getAllUsers() {
 		// TODO Auto-generated method stub
-		return employeeRepository.findAll();
+		List<Employee> empList = employeeRepository.findAll();
+		List<EmpDto> empDtoList = modelMapper.map(empList, new TypeToken<List<EmpDto>>() {}.getType());
+		return empDtoList;
 	}
 
 	public EmpDto createEmloyee(EmpDto empDto) {

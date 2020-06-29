@@ -31,9 +31,9 @@ public class EmployeeController extends AbstractEmpClass{
 	
 	
 	@GetMapping("/getAllEmployees")
-	public List<Employee> getAllUsers() { 
+	public ResponseEntity<Object> getAllUsers() { 
 		LOG.info("Getting employees.");
-		return employeeService.getAllUsers();
+		return new ResponseEntity<>(employeeService.getAllUsers(), HttpStatus.OK);
 	}
 	
 	@PostMapping("/createEmployee")
